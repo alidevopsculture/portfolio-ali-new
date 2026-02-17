@@ -207,7 +207,7 @@ const Home: React.FC = () => {
           </div>
           <div className="aspect-square rounded-[2.5rem] overflow-hidden group border border-slate-100/50 relative z-0">
             <img 
-              src="public/img/home/7D72A556-DFF3-4097-8B54-25A557DFBF76.JPG" 
+              src="/img/home/7D72A556-DFF3-4097-8B54-25A557DFBF76.JPG" 
               alt="Cloud Infrastructure" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
