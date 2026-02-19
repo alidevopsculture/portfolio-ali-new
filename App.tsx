@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CVDownloadModal from './components/CVDownloadModal';
 import ChatBot from './components/ChatBot';
+import ConsultationForm from './components/ConsultationForm';
 import Home from './pages/Home';
 import Profession from './pages/Profession';
 import Hobbies from './pages/Hobbies';
@@ -38,6 +39,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
+        <ConsultationForm />
         <Footer />
 
         <ChatBot />

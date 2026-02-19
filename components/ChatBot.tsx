@@ -33,7 +33,7 @@ const ChatBot: React.FC = () => {
         You are "Ask Ali", the AI assistant for Ali Murtaza's professional DevOps portfolio.
         Ali's Profile:
         - Role: DevOps Engineer specializing in Cloud & Automation.
-        - Location: Lucknow, India.
+        - Location: Bangalore & Lucknow, India.
         - Skills: ${SKILLS.map(s => `${s.name} (${s.level})`).join(', ')}.
         - Tech Stack: ${TECH_STACK.join(', ')}.
         - Key Projects: ${PROJECTS.map(p => p.title).join(', ')}.

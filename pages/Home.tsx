@@ -201,6 +201,7 @@ const Home: React.FC = () => {
                 <div className="text-left">
                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Location</p>
                    <p className="text-sm md:text-base font-bold text-slate-900">Lucknow, India / Remote</p>
+                   <p className="text-sm md:text-base font-bold text-slate-900">Bangalore, India / Remote</p>
                 </div>
               </div>
             </div>

@@ -52,6 +52,27 @@ const CaseStudyDetail: React.FC = () => {
                 {study.solution || "We implemented a robust automation strategy utilizing state-of-the-art cloud tools and Infrastructure as Code practices to create a reproducible and resilient environment."}
               </p>
             </section>
+
+            {/* Testimonial Section */}
+            <section className="bg-slate-50 p-8 md:p-12 rounded-[2rem] border border-slate-100">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+                <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-lg">
+                  <img src="/img/home/CEO-pic 2.PNG" alt="Ali Murtaza" className="w-full h-full object-cover" />
+                </div>
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl font-bold text-slate-900">Ali Murtaza</h3>
+                  <p className="text-slate-500 text-sm">DevOps Engineer</p>
+                  <div className="flex items-center justify-center md:justify-start gap-1 mt-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    <span className="text-xs text-slate-400">Available for opportunities</span>
+                  </div>
+                </div>
+              </div>
+              <blockquote className="text-lg md:text-xl text-slate-700 italic leading-relaxed">
+                "I believe that great infrastructure is invisible—it empowers developers and scales businesses without friction."
+              </blockquote>
+              <p className="text-right text-slate-900 font-bold mt-4">— Ali Murtaza</p>
+            </section>
           </div>
 
           <div className="lg:col-span-4">

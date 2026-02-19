@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             Ready to <span className="italic">scale your</span> infra?
           </h2>
           <p className="text-slate-500 text-base md:text-lg mb-10 max-w-md mx-auto md:mx-0">
-            I'm currently available for DevOps consulting and full-time remote opportunities. Let's talk architecture.
+            I'm currently available for DevOps consulting and full-time on-site and remote opportunities. Let's talk architecture.
           </p>
           <Link
             to="/contact"
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         </div>
 
         <p className="text-slate-400 text-[10px] md:text-sm text-center">
-          © 2024 Ali Murtaza. Handcrafted with precision.
+          © 2026 Ali Murtaza. Handcrafted with precision.
         </p>
       </div>
     </footer>
