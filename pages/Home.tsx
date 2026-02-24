@@ -42,7 +42,7 @@ const Home: React.FC = () => {
           <div className="absolute inset-4 bg-slate-100 rounded-[3rem] rotate-3 -z-10"></div>
           <div className="aspect-square rounded-[2.5rem] overflow-hidden group border border-slate-100/50 relative z-0">
             <img 
-              src="/img/home/IMG_3075.JPG" 
+              src="/img/home/IMG_8714.jpg" 
               alt="Cloud Infrastructure" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -50,6 +50,54 @@ const Home: React.FC = () => {
           <div className="absolute -bottom-6 -right-2 md:bottom-8 md:right-8 bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl flex items-center space-x-3 md:space-x-4 border border-slate-100 max-w-[200px] md:max-w-xs animate-bounce-slow z-10">
             <div className="w-2 md:w-3 h-2 md:h-3 bg-blue-500 rounded-full animate-pulse-blue"></div>
             <p className="text-[10px] md:text-sm font-bold text-slate-900">Seeking DevOps/Cloud Role</p>
+          </div>
+        </div>
+      </section>
+
+      {/* About Me Section */}
+      <section className="py-20 md:py-24 max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="space-y-6">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">About Me</p>
+            <h2 className="text-4xl md:text-5xl serif leading-tight">
+              Building the <span className="italic">infrastructure</span> that powers innovation
+            </h2>
+            <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
+              <p>
+                I'm Ali Murtaza, a DevOps Engineer specializing in cloud-native architectures and automation. 
+                Based between Lucknow and Bangalore, India, I help teams ship better software faster through 
+                resilient infrastructure and intelligent CI/CD pipelines.
+              </p>
+              <p>
+                My expertise spans AWS cloud services, Kubernetes orchestration, Docker containerization, 
+                and Infrastructure as Code with Terraform. I've successfully deployed production-grade 
+                applications ranging from 3-tier web platforms to microservices architectures, always 
+                prioritizing scalability, security, and automation.
+              </p>
+              <p>
+                Beyond DevOps, I explore AI-driven development with tools like Amazon Q, accelerating 
+                full-stack projects while maintaining enterprise-grade quality. When I'm not automating 
+                infrastructure, you'll find me capturing street photography or designing minimalist branding.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <span className="px-4 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700">AWS Certified</span>
+              <span className="px-4 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700">Kubernetes Expert</span>
+              <span className="px-4 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700">Open to Remote</span>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <img 
+                src="/img/home/IMG_3075.JPG" 
+                alt="Ali Murtaza" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-xs">
+              <p className="text-sm font-bold text-slate-900 mb-2">Currently Seeking</p>
+              <p className="text-xs text-slate-600">DevOps Engineer / Cloud Engineer roles with focus on Kubernetes, AWS, and automation</p>
+            </div>
           </div>
         </div>
       </section>
@@ -208,7 +256,7 @@ const Home: React.FC = () => {
           </div>
           <div className="aspect-square rounded-[2.5rem] overflow-hidden group border border-slate-100/50 relative z-0">
             <img 
-              src="/img/home/7D72A556-DFF3-4097-8B54-25A557DFBF76.JPG" 
+              src="/img/home/IMG_8721.jpg" 
               alt="Cloud Infrastructure" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
