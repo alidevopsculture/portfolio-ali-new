@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <p className="italic text-slate-600 text-lg md:text-xl leading-relaxed mb-4">
               "I believe that great infrastructure is invisible it empowers developers and scales businesses without friction."
             </p>
-            <p className="font-bold text-slate-900 text-sm md:text-base">— Ali Murtaza</p>
+            <p className="font-bold text-slate-900 text-sm md:text-base">, Ali Murtaza</p>
           </div>
         </div>
       </div>
@@ -50,6 +50,7 @@ const Footer: React.FC = () => {
           <a href="https://github.com/alidevopsculture" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
           {/* <a href="#" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">Twitter</a> */}
           <a href="https://www.instagram.com/exclusive.alimurtaza?igsh=MTU0YjJqNG16MDg1Zg%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">Instagram</a>
+          <a href="https://www.youtube.com/@devopswithali" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">YouTube</a>
         </div>
 
         <p className="text-slate-400 text-[10px] md:text-sm text-center">

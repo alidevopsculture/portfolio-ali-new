@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Globe, Cloud } from 'lucide-react';
-import { TECH_STACK, SKILLS, PROJECTS, CASE_STUDIES, HOBBIES } from '../constants';
+import { TECH_STACK, SKILLS, PROJECTS, CASE_STUDIES } from '../constants';
 
 const postModules = import.meta.glob('../posts/*.mdx', { eager: true }) as Record<
   string,
@@ -254,28 +254,6 @@ const Home: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Hobbies Preview Section */}
-      <section className="py-20 md:py-24 max-w-7xl mx-auto px-6 md:px-12 overflow-hidden">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 text-center md:text-left">
-          <div className="mb-6 md:mb-0">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">Beyond the Code</p>
-            <h2 className="text-4xl md:text-6xl serif italic">Creative Pursuits</h2>
-          </div>
-          <Link to="/hobbies" className="text-slate-900 font-bold border-b-2 border-slate-900 pb-1 text-sm md:text-base">View Gallery</Link>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          {HOBBIES.slice(0, 4).map((item, idx) => (
-            <div key={item.id} className={`group ${idx % 2 !== 0 ? 'md:translate-y-12' : ''} transition-transform duration-500`}>
-              <div className="aspect-[3/4] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-4 shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 text-center md:text-left">{item.type}</p>
-            </div>
-          ))}
         </div>
       </section>
 
