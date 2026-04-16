@@ -98,7 +98,7 @@ const ChatBot: React.FC = () => {
           <div className="bg-slate-900 p-6 flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full border-2 border-white/20 overflow-hidden bg-slate-800">
-                <img src="img/home/CEO-pic 2.PNG" alt="Ali" className="w-full h-full object-cover" />
+                <img src="/img/home/CEO-pic 2.PNG" alt="Ali" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-white font-bold text-sm">Ask Ali</h3>

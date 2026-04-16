@@ -1,0 +1,115 @@
+---
+title: Top 10 Advanced Kubernetes Interview Questions (2026)
+date: 2026-04-16
+tag: DevOps
+excerpt: A curated list of advanced Kubernetes interview questions with concise explanations to help you crack senior-level DevOps roles.
+---
+
+## Introduction
+
+If you're preparing for senior DevOps or platform engineering roles in 2026, basic Kubernetes knowledge won’t cut it. Interviewers expect a deep understanding of architecture, networking, security, and real-world troubleshooting.
+
+Here are 10 advanced Kubernetes interview questions you should be ready for.
+
+## 1. How does the Kubernetes control plane work internally?
+
+The control plane manages the cluster state. Key components include:
+
+- **API Server** – entry point for all operations  
+- **etcd** – stores cluster state  
+- **Controller Manager** – ensures desired state matches actual state  
+- **Scheduler** – assigns pods to nodes  
+
+Understanding how these interact is critical for debugging cluster issues.
+
+## 2. What happens when you create a Pod?
+
+- Request hits API Server  
+- Stored in etcd  
+- Scheduler assigns node  
+- Kubelet pulls image and starts container  
+- Status is reported back  
+
+This flow is often asked to test system-level understanding.
+
+## 3. Explain Kubernetes networking model.
+
+Kubernetes follows a flat networking model:
+
+- Every Pod gets its own IP  
+- Pods can communicate without NAT  
+- Services provide stable endpoints  
+
+Advanced topics include **CNI plugins**, network policies, and service mesh integration.
+
+## 4. What are CRDs and Operators?
+
+- **CRD (Custom Resource Definition)** lets you extend Kubernetes API  
+- **Operators** automate application lifecycle using controllers  
+
+Used heavily in managing databases and complex stateful apps.
+
+## 5. How does Kubernetes handle scaling?
+
+- **Horizontal Pod Autoscaler (HPA)** – scales pods based on CPU/memory  
+- **Vertical Pod Autoscaler (VPA)** – adjusts resource requests  
+- **Cluster Autoscaler** – scales nodes  
+
+Interviewers may ask about custom metrics and real-world tuning.
+
+## 6. What is the difference between StatefulSet and Deployment?
+
+- **Deployment** – stateless apps, interchangeable pods  
+- **StatefulSet** – stable identity, persistent storage, ordered deployment  
+
+Used for databases, queues, etc.
+
+## 7. How do you secure a Kubernetes cluster?
+
+Key practices:
+
+- RBAC (Role-Based Access Control)  
+- Network Policies  
+- Pod Security Standards  
+- Secrets management  
+- mTLS (often via service mesh)  
+
+Security questions are very common in advanced interviews.
+
+## 8. What is etcd and why is it critical?
+
+- Distributed key-value store  
+- Stores entire cluster state  
+- Strong consistency  
+
+If etcd fails, your cluster is effectively down—backup and recovery strategies are important.
+
+## 9. How do you troubleshoot a failing Pod?
+
+Typical steps:
+
+- `kubectl describe pod`  
+- Check logs  
+- Verify events  
+- Inspect node status  
+- Check resource limits  
+
+Interviewers expect a structured debugging approach.
+
+## 10. When should you use a Service Mesh?
+
+Use a service mesh when you need:
+
+- Advanced traffic control  
+- Observability (tracing, metrics)  
+- Strong security (mTLS)  
+
+Avoid it for small systems due to added complexity.
+
+## Key Takeaways
+
+- Focus on **architecture, not just commands**  
+- Be ready to explain **real-world scenarios**  
+- Practice debugging and scaling problems  
+- Understand trade-offs (complexity vs benefits)  
+- Stay updated—Kubernetes evolves fast  

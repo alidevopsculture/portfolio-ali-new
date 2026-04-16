@@ -1,3 +1,26 @@
+/* Blog prose code block fix */
+.prose pre {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: 0.875rem;
+  white-space: pre;
+}
+
+.prose code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }

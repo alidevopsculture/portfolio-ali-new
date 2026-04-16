@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Globe, Cloud } from 'lucide-react';
 import { TECH_STACK, SKILLS, PROJECTS, CASE_STUDIES, HOBBIES } from '../constants';
 
+const postModules = import.meta.glob('../posts/*.mdx', { eager: true }) as Record<
+  string,
+  { frontmatter: { title: string; date: string; tag: string; excerpt: string } }
+>;
+
+const blogPosts = Object.entries(postModules)
+  .map(([path, mod]) => ({
+    slug: path.replace('../posts/', '').replace('.mdx', ''),
+    ...mod.frontmatter,
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+
 const Home: React.FC = () => {
   return (
     <div className="pt-20">
@@ -54,6 +67,47 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Blog Teaser Section */}
+      <section className="py-20 md:py-24 max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">From the Blog</p>
+            <h2 className="text-4xl md:text-6xl serif">Read what's <span className="italic">important</span></h2>
+          </div>
+          <Link to="/blog" className="hidden md:inline-flex items-center space-x-2 font-bold text-slate-900 hover:text-slate-600 transition-colors border-b-2 border-slate-900 pb-1">
+            <span>All Posts</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <Link to={`/blog/${post.slug}`} key={post.slug} className="group p-8 rounded-[2rem] border border-slate-100 hover:border-slate-300 hover:shadow-xl transition-all duration-300 flex flex-col">
+              <div className="flex items-center space-x-3 mb-5">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{post.tag}</span>
+                <span className="w-1 h-1 rounded-full bg-slate-300" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors leading-snug flex-1">{post.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6">{post.excerpt}</p>
+              <span className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-slate-900 group-hover:translate-x-1 transition-transform">
+                <span>Read More</span>
+                <ArrowRight size={12} />
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center md:hidden">
+          <Link to="/blog" className="inline-flex items-center space-x-2 font-bold text-slate-900 border-b-2 border-slate-900 pb-1">
+            <span>All Posts</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
       {/* About Me Section */}
       <section className="py-20 md:py-24 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -65,7 +119,7 @@ const Home: React.FC = () => {
             <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
               <p>
                 I'm Ali Murtaza, a DevOps Engineer specializing in cloud-native architectures and automation. 
-                Based between Lucknow and Bangalore, India, I help teams ship better software faster through 
+                Based in Bangalore, India. I help teams ship better software faster through 
                 resilient infrastructure and intelligent CI/CD pipelines.
               </p>
               <p>

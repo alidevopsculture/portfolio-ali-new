@@ -1,0 +1,38 @@
+---
+title: Building Scalable CI/CD Pipelines with GitHub Actions
+date: 2026-04-16
+tag: DevOps
+excerpt: A deep dive into designing robust, reusable CI/CD workflows that scale across multiple microservices.
+---
+
+## Introduction
+
+CI/CD pipelines are the backbone of modern software delivery. In this post, I'll walk through how I design GitHub Actions workflows that scale across multiple microservices without becoming a maintenance nightmare.
+
+## The Problem with Naive Pipelines
+
+Most teams start with a simple workflow — push code, run tests, deploy. But as the codebase grows, you end up with:
+
+- Duplicated workflow files across repos
+- Long feedback loops because everything runs sequentially
+- No reusability between projects
+
+## The Solution: Reusable Workflows
+
+GitHub Actions supports **reusable workflows** via `workflow_call`. You define the workflow once in a central repo and call it from any other repo.
+
+```yaml
+jobs:
+  call-deploy:
+    uses: org/shared-workflows/.github/workflows/deploy.yml@main
+    with:
+      environment: production
+    secrets: inherit
+```
+
+## Key Takeaways
+
+- Use reusable workflows to DRY up your pipelines
+- Run jobs in parallel wherever possible to cut feedback time
+- Cache dependencies aggressively — it's free speed
+- Always pin action versions to a commit SHA for security

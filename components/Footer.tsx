@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="relative shrink-0">
             <img 
-              src="img/home/CEO-pic 2.PNG" 
+              src="/img/home/CEO-pic 2.PNG" 
               alt="Ali Murtaza" 
               className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover grayscale border-2 border-slate-50"
             />
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
           <div className="flex-1 bg-slate-50 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] relative">
             <div className="hidden md:block absolute -left-3 top-10 w-6 h-6 bg-slate-50 rotate-45"></div>
             <p className="italic text-slate-600 text-lg md:text-xl leading-relaxed mb-4">
-              "I believe that great infrastructure is invisible—it empowers developers and scales businesses without friction."
+              "I believe that great infrastructure is invisible it empowers developers and scales businesses without friction."
             </p>
             <p className="font-bold text-slate-900 text-sm md:text-base">— Ali Murtaza</p>
           </div>
@@ -46,10 +46,10 @@ const Footer: React.FC = () => {
         </Link>
         
         <div className="flex space-x-6 md:space-x-8 mb-8 md:mb-0">
-          <a href="https://linkedin.com/in/alimurtazadevops/" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">LinkedIn</a>
-          <a href="https://github.com/alidevopsculture" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/alimurtazadevops/" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">LinkedIn</a>
+          <a href="https://github.com/alidevopsculture" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
           {/* <a href="#" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">Twitter</a> */}
-          <a href="#" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">Instagram</a>
+          <a href="https://www.instagram.com/exclusive.alimurtaza?igsh=MTU0YjJqNG16MDg1Zg%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">Instagram</a>
         </div>
 
         <p className="text-slate-400 text-[10px] md:text-sm text-center">
