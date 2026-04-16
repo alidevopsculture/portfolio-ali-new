@@ -15,8 +15,9 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
     { name: 'Home', path: '/' },
     { name: 'Profession', path: '/profession' },
     { name: 'Tutorials', path: '/tutorials' },
-    { name: 'Contact', path: '/contact' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
+
   ];
 
   useEffect(() => {
