@@ -1,0 +1,136 @@
+---
+title: Horizontal vs Vertical Scaling in Kubernetes
+date: 2026-04-18
+tag: DevOps
+excerpt: A deep dive into horizontal and vertical scaling in Kubernetes, how they work, and when to use each in real-world systems.
+---
+
+## Introduction
+
+Scaling is one of the core reasons teams adopt Kubernetes. As traffic grows, your system must handle increased load without breaking or slowing down.
+
+In Kubernetes, scaling mainly happens in two ways: horizontal scaling and vertical scaling. Both solve the same problem but take very different approaches.
+
+In this post, we will break down how each works, their pros and cons, and when to use them.
+
+## What is Horizontal Scaling
+
+Horizontal scaling means increasing or decreasing the number of pods running your application.
+
+Instead of making a single instance more powerful, you run multiple copies of it.
+
+For example:
+
+- 1 pod handling traffic becomes 5 pods  
+- Load is distributed across all pods  
+- If one pod fails, others continue serving  
+
+Kubernetes handles this using the **Horizontal Pod Autoscaler**.
+
+### How it works
+
+- Monitors metrics like CPU or memory  
+- Scales number of pods up or down  
+- Uses metrics server or custom metrics  
+
+### Benefits
+
+- High availability and fault tolerance  
+- Better for stateless applications  
+- Handles sudden traffic spikes well  
+
+### Limitations
+
+- Not ideal for stateful workloads  
+- Requires load balancing  
+- More network overhead  
+
+## What is Vertical Scaling
+
+Vertical scaling means increasing the resources of a single pod.
+
+Instead of adding more pods, you give more CPU or memory to an existing one.
+
+For example:
+
+- Pod CPU changes from 500m to 2 cores  
+- Memory increases from 512MB to 2GB  
+
+Kubernetes supports this using the **Vertical Pod Autoscaler**.
+
+### How it works
+
+- Analyzes resource usage over time  
+- Recommends or updates resource requests  
+- May restart pods to apply changes  
+
+### Benefits
+
+- Simple to implement  
+- Works well for stateful applications  
+- No need for load balancing changes  
+
+### Limitations
+
+- Requires pod restarts in most cases  
+- Limited by node capacity  
+- No built-in fault tolerance  
+
+## Key Differences
+
+| Aspect                | Horizontal Scaling              | Vertical Scaling              |
+|----------------------|--------------------------------|-------------------------------|
+| Approach             | Add more pods                  | Increase pod resources        |
+| Availability         | High                           | Limited                       |
+| Downtime             | Minimal                        | Possible during restart       |
+| Use case             | Stateless apps                 | Stateful apps                 |
+| Scaling limit        | Cluster size                   | Node capacity                 |
+| Complexity           | Moderate                       | Low                           |
+
+## When to Use Horizontal Scaling
+
+Use horizontal scaling when:
+
+- Your application is stateless  
+- You expect variable or spiky traffic  
+- High availability is critical  
+- You are running web apps or APIs  
+
+It is the most common scaling strategy in cloud native systems.
+
+## When to Use Vertical Scaling
+
+Use vertical scaling when:
+
+- Your application is stateful  
+- Scaling horizontally is difficult  
+- You need predictable performance  
+- You are running databases or legacy systems  
+
+It is often used as a starting point before moving to horizontal scaling.
+
+## Best Practice: Combine Both
+
+In real-world systems, teams often combine both approaches.
+
+- Use vertical scaling to optimize resource usage  
+- Use horizontal scaling to handle traffic  
+
+This hybrid approach provides better performance and cost efficiency.
+
+## Common Mistakes
+
+- Over scaling horizontally without resource tuning  
+- Ignoring limits and requests configuration  
+- Using vertical scaling for highly dynamic workloads  
+- Not monitoring metrics properly  
+
+Scaling without observability leads to poor decisions.
+
+## Key Takeaways
+
+- Horizontal scaling adds more pods and improves availability  
+- Vertical scaling increases resources of a single pod  
+- Horizontal scaling is best for stateless workloads  
+- Vertical scaling is useful for stateful systems  
+- Combining both gives the best results in production  
