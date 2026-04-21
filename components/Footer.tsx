@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
           <div className="flex-1 bg-slate-50 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] relative">
             <div className="hidden md:block absolute -left-3 top-10 w-6 h-6 bg-slate-50 rotate-45"></div>
             <p className="italic text-slate-600 text-lg md:text-xl leading-relaxed mb-4">
-             “Dreams don’t work unless you do, but once you do, nothing can stop you.”
+             “The grind you don’t see today will define the life you admire tomorrow.”
             </p>
             <p className="font-bold text-slate-900 text-sm md:text-base">Ali Murtaza</p>
           </div>
