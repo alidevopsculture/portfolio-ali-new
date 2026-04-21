@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <p className="italic text-slate-600 text-lg md:text-xl leading-relaxed mb-4">
              “The grind you don’t see today will define the life you admire tomorrow.”
             </p>
-            <p className="font-bold text-slate-900 text-sm md:text-base">Ali Murtaza</p>
+            <p className="font-bold text-slate-900 text-sm md:text-base">- Ali Murtaza</p>
           </div>
         </div>
       </div>
