@@ -71,7 +71,7 @@ const CaseStudyDetail: React.FC = () => {
               <blockquote className="text-lg md:text-xl text-slate-700 italic leading-relaxed">
                 "I believe that great infrastructure is invisible it empowers developers and scales businesses without friction."
               </blockquote>
-              <p className="text-right text-slate-900 font-bold mt-4">, Ali Murtaza</p>
+              <p className="text-right text-slate-900 font-bold mt-4">Ali Murtaza</p>
             </section>
           </div>
 
