@@ -21,50 +21,32 @@ const Home: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="animate-in slide-in-from-left duration-700 text-center lg:text-left">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12">
           <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-6">
             DevOps Engineer | Cloud & Automation
           </p>
-          <h1 className="text-4xl md:text-7xl serif leading-[1.1] mb-8">
+          <h1 className="text-[clamp(2.5rem,7.5vw,6.5rem)] serif leading-[1.05] mb-8 bg-gradient-to-r from-blue-600 via-pink-500 to-slate-900 bg-clip-text text-transparent w-full">
             Automating the <span className="italic">infrastructure</span> that powers the future.
           </h1>
-          <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+          <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
             Hi, I'm Ali Murtaza. I build resilient, scalable, and automated cloud environments that enable teams to ship better software, faster.
           </p>
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-16">
-            <Link to="/profession" className="bg-slate-900 text-white px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all text-sm md:text-base">
+          <div className="flex flex-wrap gap-4 mb-16">
+            <Link to="/profession" className="bg-gradient-to-r from-blue-600 to-red-500 text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-all text-sm md:text-base">
               View My Projects
             </Link>
-            <Link to="/contact" className="border border-slate-200 text-slate-900 px-8 py-4 rounded-full font-medium hover:bg-slate-50 transition-all text-sm md:text-base">
+            <Link to="/contact" className="bg-gradient-to-r from-blue-600 to-red-500 text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-all text-sm md:text-base">
               Collaborate
             </Link>
           </div>
-          <div className="max-w-xs mx-auto lg:mx-0">
+          <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">Core Stack</p>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-4">
+            <div className="flex flex-wrap gap-x-6 gap-y-4">
               {TECH_STACK.map(tech => (
                 <span key={tech} className="text-xs md:text-sm font-semibold text-slate-500">{tech}</span>
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="relative animate-in slide-in-from-right duration-700 mt-12 lg:mt-0">
-          <div className="absolute -inset-4 bg-slate-50 rounded-[3rem] -rotate-3 -z-10"></div>
-          <div className="absolute inset-4 bg-slate-100 rounded-[3rem] rotate-3 -z-10"></div>
-          <div className="aspect-square rounded-[2.5rem] overflow-hidden group border border-slate-100/50 relative z-0">
-            <img 
-              src="/img/home/Hero.jpg" 
-              alt="Cloud Infrastructure" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-          </div>
-          <div className="absolute -bottom-6 -right-2 md:bottom-8 md:right-8 bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl flex items-center space-x-3 md:space-x-4 border border-slate-100 max-w-[200px] md:max-w-xs animate-bounce-slow z-10">
-            <div className="w-2 md:w-3 h-2 md:h-3 bg-blue-500 rounded-full animate-pulse-blue"></div>
-            <p className="text-[10px] md:text-sm font-bold text-slate-900">Seeking DevOps/Cloud Role</p>
-          </div>
-        </div>
       </section>
 
       {/* Blog Teaser Section */}
@@ -82,20 +64,22 @@ const Home: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <Link to={`/blog/${post.slug}`} key={post.slug} className="group p-8 rounded-[2rem] border border-slate-100 hover:border-slate-300 hover:shadow-xl transition-all duration-300 flex flex-col">
-              <div className="flex items-center space-x-3 mb-5">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{post.tag}</span>
-                <span className="w-1 h-1 rounded-full bg-slate-300" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+            <Link to={`/blog/${post.slug}`} key={post.slug} className="group p-[2px] rounded-[2rem] bg-gradient-to-r from-blue-600 via-pink-500 to-red-500 opacity-100 hover:opacity-100 transition-all duration-300">
+              <div className="h-full bg-white p-8 rounded-[1.9rem] flex flex-col">
+                <div className="flex items-center space-x-3 mb-5">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{post.tag}</span>
+                  <span className="w-1 h-1 rounded-full bg-slate-300" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors leading-snug flex-1">{post.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6">{post.excerpt}</p>
+                <span className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-slate-900 group-hover:translate-x-1 transition-transform">
+                  <span>Read More</span>
+                  <ArrowRight size={12} />
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors leading-snug flex-1">{post.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-6">{post.excerpt}</p>
-              <span className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-slate-900 group-hover:translate-x-1 transition-transform">
-                <span>Read More</span>
-                <ArrowRight size={12} />
-              </span>
             </Link>
           ))}
         </div>
@@ -280,7 +264,6 @@ const Home: React.FC = () => {
                 <div className="w-10 h-10 bg-slate-50 flex items-center justify-center rounded-xl text-slate-900"><Cloud size={20} /></div>
                 <div className="text-left">
                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Location</p>
-                   <p className="text-sm md:text-base font-bold text-slate-900">Lucknow, India / Remote</p>
                    <p className="text-sm md:text-base font-bold text-slate-900">Bangalore, India / Remote</p>
                 </div>
               </div>
@@ -288,7 +271,7 @@ const Home: React.FC = () => {
           </div>
           <div className="aspect-square rounded-[2.5rem] overflow-hidden group border border-slate-100/50 relative z-0">
             <img 
-              src="/img/home/IMG_8721.jpg" 
+              src="/img/home/Hero.jpg" 
               alt="Cloud Infrastructure" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />

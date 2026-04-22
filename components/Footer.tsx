@@ -15,28 +15,16 @@ const Footer: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-slate-900 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-medium shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            className="inline-block bg-gradient-to-r from-blue-600 to-red-500 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-medium shadow-2xl hover:opacity-90 hover:-translate-y-1 transition-all duration-300"
           >
             Start a Conversation
           </Link>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
-          <div className="relative shrink-0">
-            <img 
-              src="/img/home/CEO-pic 2.PNG" 
-              alt="Ali Murtaza" 
-              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover grayscale border-2 border-slate-50"
-            />
-            <div className="absolute bottom-2 right-2 w-3 md:w-4 h-3 md:h-4 bg-green-500 border-2 border-white rounded-full"></div>
-          </div>
-          <div className="flex-1 bg-slate-50 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] relative">
-            <div className="hidden md:block absolute -left-3 top-10 w-6 h-6 bg-slate-50 rotate-45"></div>
-            <p className="italic text-slate-600 text-lg md:text-xl leading-relaxed mb-4">
-             “The grind you don’t see today will define the life you admire tomorrow.”
-            </p>
-            <p className="font-bold text-slate-900 text-sm md:text-base">- Ali Murtaza</p>
-          </div>
+        <div className="flex flex-col justify-center space-y-2">
+          <p className="text-6xl md:text-8xl font-black text-slate-100 leading-none tracking-tight">BUILD.</p>
+          <p className="text-6xl md:text-8xl font-black text-slate-200 leading-none tracking-tight">AUTOMATE.</p>
+          <p className="text-6xl md:text-8xl font-black text-slate-300 leading-none tracking-tight">SCALE.</p>
         </div>
       </div>
 

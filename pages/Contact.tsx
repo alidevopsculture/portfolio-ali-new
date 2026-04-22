@@ -55,7 +55,6 @@ const Contact: React.FC = () => {
             <div className="flex items-center space-x-3 text-slate-900">
               <MapPin size={20} />
               <span className="font-bold text-lg">Bangalore, India /Remote</span>
-              <span className="font-bold text-lg">Lucknow, India / Remote</span>
             </div>
           </div>
         </div>
