@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-16 md:pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
+    <footer className="bg-white border-t border-slate-200 pt-16 md:pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-20 md:mb-24 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-4xl md:text-6xl serif leading-tight mb-8">
-            Ready to <span className="italic">scale your</span> infra?
+            Ready to modernize your cloud delivery?
           </h2>
           <p className="text-slate-500 text-base md:text-lg mb-10 max-w-md mx-auto md:mx-0">
-            I'm currently available for DevOps consulting and full-time on-site and remote opportunities. Let's talk architecture.
+            I'm currently available for DevOps consulting and full-time on-site or remote opportunities. Let's talk architecture, reliability, and delivery speed.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-gradient-to-r from-blue-600 to-red-500 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-medium shadow-2xl hover:opacity-90 hover:-translate-y-1 transition-all duration-300"
+            className="inline-block bg-slate-950 text-white px-8 md:px-10 py-4 md:py-5 rounded-lg text-base md:text-lg font-semibold shadow-2xl shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-1 transition-all duration-300"
           >
             Start a Conversation
           </Link>
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-slate-100">
+      <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-slate-200">
         <Link to="/" className="text-xl font-bold mb-8 md:mb-0">
           ALI MURTAZA
         </Link>

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Download, MapPin } from 'lucide-react';
 
 interface NavbarProps {
   onDownloadClick: () => void;
@@ -13,9 +13,9 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Profession', path: '/profession' },
+    { name: 'Work', path: '/profession' },
     { name: 'Tutorials', path: '/tutorials' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Insights', path: '/blog' },
     { name: 'Contact', path: '/contact' },
 
   ];
@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
 
   const Logo = ({ className = "" }: { className?: string }) => (
     <Link to="/" className={`flex items-center space-x-3 tracking-tight group ${className}`}>
-      <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-100 group-hover:border-slate-900 transition-all duration-300">
+      <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-200 group-hover:border-slate-900 transition-all duration-300">
         <img 
           src="/img/home/IMG_3597.jpg" 
           alt="Ali Murtaza" 
@@ -41,11 +41,11 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full h-20 bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 px-6 md:px-12 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 w-full h-20 bg-white/85 backdrop-blur-xl z-50 border-b border-slate-200 px-6 md:px-12 flex items-center justify-between">
         <Logo />
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-10">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -62,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
           ))}
           <button
             onClick={onDownloadClick}
-            className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition-all flex items-center space-x-2"
+            className="bg-slate-950 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all flex items-center space-x-2 shadow-lg shadow-slate-900/10"
           >
             <span>Download CV</span>
             <ArrowRight size={14} />
@@ -80,44 +80,69 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-white z-[60] transition-transform duration-500 ease-in-out md:hidden ${
+        className={`fixed inset-0 bg-slate-950 z-[60] transition-transform duration-500 ease-in-out md:hidden ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
-        <div className="flex flex-col h-full p-10">
-          <div className="flex justify-between items-center mb-16">
-            <Logo />
-            <button onClick={() => setIsOpen(false)} className="p-2 text-slate-900"><X size={32} /></button>
+        <div className="flex h-full flex-col overflow-y-auto bg-[radial-gradient(circle_at_top_right,rgba(148,163,184,0.22),transparent_34%),linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-6 py-7">
+          <div className="flex justify-between items-center mb-10">
+            <Logo className="scale-95 origin-left" />
+            <button
+              onClick={() => setIsOpen(false)}
+              className="w-12 h-12 rounded-xl border border-slate-200 bg-white text-slate-950 flex items-center justify-center shadow-sm"
+              aria-label="Close menu"
+            >
+              <X size={26} />
+            </button>
           </div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-[20vw] italic font-serif text-slate-50 opacity-50 select-none pointer-events-none">
-            Ali
+          <div className="mb-8 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-5 shadow-sm">
+            <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-slate-400 mb-3">Available For</p>
+            <p className="text-2xl serif leading-tight text-slate-950 mb-4">DevOps Engineer / Cloud Engineer roles</p>
+            <div className="flex items-center gap-2 text-sm font-semibold text-slate-500">
+              <MapPin size={16} />
+              <span>Bangalore, India / Remote</span>
+            </div>
           </div>
 
-          <div className="flex flex-col space-y-8 mt-12">
-            {navLinks.map((link) => (
+          <div className="space-y-3">
+            {navLinks.map((link, index) => {
+              const active = location.pathname === link.path;
+              return (
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-5xl serif font-medium text-slate-900"
+                className={`group flex items-center justify-between rounded-2xl border px-5 py-4 transition-all ${
+                  active
+                    ? 'border-slate-950 bg-slate-950 text-white shadow-xl shadow-slate-900/10'
+                    : 'border-slate-200 bg-white text-slate-950 hover:border-slate-400'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
-                {link.name}
+                <span className="flex items-center gap-4">
+                  <span className={`text-[10px] font-bold tracking-widest ${active ? 'text-slate-400' : 'text-slate-400'}`}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-2xl serif">{link.name}</span>
+                </span>
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="mt-auto">
+          <div className="mt-auto pt-8 pb-4">
              <button
               onClick={() => { onDownloadClick(); setIsOpen(false); }}
-              className="w-full bg-slate-900 text-white py-5 rounded-full text-lg font-medium mb-12"
+              className="w-full bg-slate-950 text-white py-4 rounded-2xl text-base font-bold mb-6 flex items-center justify-center gap-3 shadow-2xl shadow-slate-900/15"
             >
-              Download CV
+              <Download size={18} />
+              <span>Download CV</span>
             </button>
-            <div className="flex space-x-6 text-slate-500 font-bold uppercase tracking-widest text-xs">
-              <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
-              <a href="https://linkedin.com/in/alimurtazadevops/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://github.com/alidevopsculture" target="_blank" rel="noreferrer">GitHub</a>
+            <div className="grid grid-cols-3 gap-2 text-slate-500 font-bold uppercase tracking-widest text-[10px]">
+              <a href="https://linkedin.com/in/alimurtazadevops/" target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-center">LinkedIn</a>
+              <a href="https://github.com/alidevopsculture" target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-center">GitHub</a>
+              <a href="https://www.youtube.com/@devopswithali" target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-3 py-3 text-center">YouTube</a>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import CVDownloadModal from './components/CVDownloadModal';
 import ChatBot from './components/ChatBot';
 import ConsultationForm from './components/ConsultationForm';
+import ScrollUpButton from './components/ScrollUpButton';
 import Home from './pages/Home';
 import Profession from './pages/Profession';
 import YouTube from './pages/YouTube';
@@ -47,6 +48,7 @@ const App: React.FC = () => {
         <Footer />
 
         <ChatBot />
+        <ScrollUpButton />
 
         <CVDownloadModal 
           isOpen={isCVModalOpen} 

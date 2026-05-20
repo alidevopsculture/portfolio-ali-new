@@ -17,6 +17,44 @@ export const SKILLS: Skill[] = [
 export const PROJECTS: Project[] = [
   // DevOps Infrastructure
   {
+    id: 'two-tier-flask-mysql-cicd',
+    title: 'Two-Tier Flask + MySQL CI/CD Pipeline',
+    category: 'DevOps Infrastructure',
+    subtitle: 'Dockerized Web App with Jenkins Auto-Deploy',
+    description: 'Two-tier Flask and MySQL application deployed on AWS EC2 with Docker Compose and Jenkins CI/CD. Every GitHub push triggers an automated redeploy, mirroring production-style delivery workflows.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Flask', 'MySQL', 'Docker', 'Jenkins', 'AWS EC2'],
+    link: 'https://github.com/alidevopsculture/Two-Tier-CI-CD-Pipeline',
+    challenge: 'Build and deploy a two-tier production-style application with a Flask web tier and MySQL database tier on AWS EC2, then automate deployments through Jenkins whenever code is pushed to GitHub. The implementation needed to handle container orchestration, database readiness, secure runtime settings, and Jenkins executor constraints.',
+    solution: 'Containerized the Flask app and MySQL database with Docker Compose, simplified the Python Dockerfile to a single production-focused stage, installed the system libraries required for mysqlclient, added MySQL healthchecks, and implemented a Flask database retry loop to prevent startup race conditions. Configured Jenkins with the correct node label, executor availability, swap space, and a pipeline that pulls the latest GitHub code and redeploys the app using docker-compose down followed by docker-compose up --build.',
+    results: [
+      'Automated deployment pipeline from GitHub webhook to Jenkins to AWS EC2',
+      'Reliable Flask startup with MySQL healthchecks and application-level retry logic',
+      'Resolved Docker build failures caused by missing pkg-config and MySQL development libraries',
+      'Improved production safety by moving Flask debug mode behind an environment variable',
+      'Fixed Jenkins scheduling issues by adding swap, correcting node labels, and tuning node usage'
+    ]
+  },
+  {
+    id: 'two-tier-flask-mysql-github-actions',
+    title: 'Two-Tier Flask + MySQL GitHub Actions Deployment',
+    category: 'DevOps Infrastructure',
+    subtitle: 'Docker Hub Image Pipeline with EC2 Deploy',
+    description: 'Two-tier Flask and MySQL app deployed on AWS EC2 through GitHub Actions. The workflow builds the Docker image, pushes it to Docker Hub, SSHs into EC2, and restarts the live containers with production environment variables.',
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1200',
+    tags: ['GitHub Actions', 'Docker Hub', 'Flask', 'MySQL', 'AWS EC2'],
+    link: 'https://github.com/alidevopsculture/webapp-GHA',
+    challenge: 'Implement a production-style CI/CD flow for a Flask and MySQL two-tier application without Jenkins. The pipeline needed to build and publish a Docker image to Docker Hub, connect securely to AWS EC2, create the runtime Docker network, start MySQL, deploy the latest Flask container, and pass database secrets reliably.',
+    solution: 'Built a GitHub Actions workflow that checks out the code, configures Docker Buildx, logs in to Docker Hub, builds and pushes the webapp image, then deploys over SSH to EC2. The EC2 deploy step creates the two-tier Docker network, runs mysql:8.0 with the required secrets, pulls the latest webapp image, removes the old container, and starts the new container with explicit MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DB environment variables. Hardened the Flask app by moving debug mode behind an environment variable and adding database connection retries.',
+    results: [
+      'End-to-end GitHub Actions pipeline from git push to live EC2 deployment',
+      'Docker image build and publish flow using Docker Buildx and Docker Hub',
+      'Secure deployment using GitHub Secrets for Docker Hub, SSH, EC2, and MySQL credentials',
+      'Resolved broken workflow issues from incorrect action namespace and YAML indentation',
+      'Fixed EC2 deployment failures by installing Docker and passing explicit container environment variables'
+    ]
+  },
+  {
     id: 'k8s-migration',
     title: 'Kubernetes Minikube Deployment - Blogy Platform',
     category: 'DevOps Infrastructure',

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft as ArrowLeftIcon, CheckCircle2 as CheckCircleIcon } from 'lucide-react';
+import { ArrowLeft as ArrowLeftIcon, CheckCircle2 as CheckCircleIcon, Github, ArrowUpRight } from 'lucide-react';
 import { CASE_STUDIES, PROJECTS } from '../constants';
 
 const CaseStudyDetail: React.FC = () => {
@@ -21,42 +21,54 @@ const CaseStudyDetail: React.FC = () => {
           <span className="font-bold uppercase tracking-widest text-[10px]">Back</span>
         </Link>
 
-        <div className="mb-16 md:mb-20 text-center md:text-left">
+        <div className="mb-12 md:mb-16 text-center md:text-left border-b border-slate-200 pb-10 md:pb-12">
           <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-8">
             {study.tags.map((tag: string) => (
-              <span key={tag} className="px-5 py-2 bg-slate-50 rounded-full text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">{tag}</span>
+              <span key={tag} className="px-4 py-2 bg-slate-50 border border-slate-200 rounded-md text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">{tag}</span>
             ))}
           </div>
-          <h1 className="text-3xl md:text-7xl lg:text-8xl serif leading-[1.1] max-w-4xl mb-8 mx-auto md:mx-0">{study.title}</h1>
-          <p className="text-lg md:text-2xl text-slate-500 max-w-2xl leading-relaxed italic mx-auto md:mx-0">
+          <h1 className="text-3xl md:text-6xl lg:text-7xl serif leading-[1.08] max-w-5xl mb-8 mx-auto md:mx-0">{study.title}</h1>
+          <p className="text-lg md:text-2xl text-slate-500 max-w-3xl leading-relaxed mx-auto md:mx-0">
             {study.subtitle || study.category}
           </p>
+          {study.link && (
+            <a
+              href={study.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 mt-8 bg-slate-950 text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10"
+            >
+              <Github size={18} />
+              <span>View GitHub Repository</span>
+              <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
 
-        <div className="aspect-[16/9] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl mb-16 md:mb-24 border border-slate-100">
+        <div className="aspect-[16/9] md:aspect-[21/9] rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 mb-16 md:mb-20 border border-slate-200">
           <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-8 space-y-16 md:space-y-24">
             <section>
-              <h2 className="text-2xl md:text-3xl serif mb-6 md:mb-8 pb-4 border-b border-slate-100">The Challenge</h2>
+              <h2 className="text-2xl md:text-3xl serif mb-6 md:mb-8 pb-4 border-b border-slate-200">The Challenge</h2>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 {study.challenge || "As a DevOps engineer, the primary objective was to modernize the legacy infrastructure while maintaining service availability and improving developer productivity."}
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl serif mb-6 md:mb-8 pb-4 border-b border-slate-100">The Solution</h2>
+              <h2 className="text-2xl md:text-3xl serif mb-6 md:mb-8 pb-4 border-b border-slate-200">The Solution</h2>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 {study.solution || "We implemented a robust automation strategy utilizing state-of-the-art cloud tools and Infrastructure as Code practices to create a reproducible and resilient environment."}
               </p>
             </section>
 
             {/* Testimonial Section */}
-            <section className="bg-slate-50 p-8 md:p-12 rounded-[2rem] border border-slate-100">
+            <section className="bg-slate-50 p-8 md:p-10 rounded-xl border border-slate-200">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
-                <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-lg">
+                <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0 border-2 border-white shadow-lg">
                   <img src="/img/home/CEO-pic 2.PNG" alt="Ali Murtaza" className="w-full h-full object-cover" />
                 </div>
                 <div className="text-center md:text-left">
@@ -69,14 +81,14 @@ const CaseStudyDetail: React.FC = () => {
                 </div>
               </div>
               <blockquote className="text-lg md:text-xl text-slate-700 italic leading-relaxed">
-                "I believe that great infrastructure is invisible it empowers developers and scales businesses without friction."
+                "Great infrastructure should feel dependable, observable, and repeatable. It should let teams move faster without increasing operational risk."
               </blockquote>
               <p className="text-right text-slate-900 font-bold mt-4">Ali Murtaza</p>
             </section>
           </div>
 
           <div className="lg:col-span-4">
-            <div className="sticky top-32 bg-slate-50 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100">
+            <div className="sticky top-32 bg-slate-50 p-7 md:p-8 rounded-xl border border-slate-200">
               <h2 className="text-xl md:text-2xl serif mb-8">Key Results</h2>
               <div className="space-y-6 md:space-y-8">
                 {(study.results || ["99.9% Uptime achieved", "Automated deployment pipelines", "Infrastructure cost reduction"]).map((result: string, i: number) => (

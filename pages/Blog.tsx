@@ -1,6 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import ThoughtsCarousel from '../components/ThoughtsCarousel';
 
 interface PostMeta {
   slug: string;
@@ -22,132 +24,63 @@ const posts: PostMeta[] = Object.entries(postModules)
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-const quotes = [
-  { text: "What you don't see today… will be impossible to ignore tomorrow.", tags: ['#Mindset', '#Growth'] },
-  { text: "The quiet work writes a future no one expects.", tags: ['#Hustle', '#Patience'] },
-  { text: "Built in silence. Revealed in time.", tags: ['#Discipline', '#Focus'] },
-  { text: "What's hidden now… won't stay hidden for long.", tags: ['#Grind', '#Winning'] },
-  { text: "The unseen grind decides what the world eventually sees.", tags: ['#Mindset', '#Success'] },
-  { text: "Silence today. Impact tomorrow.", tags: ['#Hustle', '#Resilience'] },
-  { text: "Not everything worth building is meant to be seen early.", tags: ['#Motivation', '#Journey'] },
-  { text: "The work you overlook today becomes the story you admire tomorrow.", tags: ['#Discipline', '#Growth'] },
-];
-
 const Blog: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-  const [liked, setLiked] = useState<boolean[]>(quotes.map(() => false));
-  const [likeCounts, setLikeCounts] = useState<number[]>([9800, 4200, 6100, 3300, 7700, 5500, 8200, 4900]);
-  const [copied, setCopied] = useState(false);
-
-  const handleLike = () => {
-    const isLiked = liked[current];
-    setLiked(prev => { const n = [...prev]; n[current] = !n[current]; return n; });
-    setLikeCounts(prev => { const n = [...prev]; n[current] += isLiked ? -1 : 1; return n; });
-  };
-
-  const handleShare = () => {
-    navigator.clipboard.writeText('http://localhost:3000/blog').then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const prev = () => setCurrent(i => (i - 1 + quotes.length) % quotes.length);
-  const next = () => setCurrent(i => (i + 1) % quotes.length);
-
-  const q = quotes[current];
-
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24 px-6 md:px-12 max-w-4xl mx-auto">
-      <div className="mb-16">
-        <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Blog</p>
-        <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
-          My Thoughts &<br />Writings
-        </h1>
-      </div>
-
-      {/* Quote Carousel */}
-      <div className="mb-16">
-        <div className="p-[2px] rounded-[1.5rem] bg-gradient-to-r from-blue-500 to-blue-400">
-          <div className="bg-white rounded-[1.4rem] p-6">
-            {/* Header */}
-            <div className="flex items-center mb-3">
-              <div className="flex items-center gap-3">
-                <img src="/img/home/IMG_8714.jpg" alt="Ali Murtaza" className="w-12 h-12 rounded-full object-cover" />
-                <div className="flex items-center gap-1">
-                  <span className="font-bold text-slate-900 text-sm">Ali Murtaza</span>
-                  <svg className="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  <span className="text-slate-400 text-sm">&nbsp;@alimurtazadevops</span>
-                </div>
+    <div className="min-h-screen bg-white pt-28 md:pt-36 pb-24">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-14 md:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 border-b border-slate-200 pb-12">
+          <div className="lg:col-span-8">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-5">Engineering Insights</p>
+            <h1 className="text-4xl md:text-7xl serif text-slate-950 leading-tight mb-6">
+              Practical writing on cloud delivery and systems thinking.
+            </h1>
+            <p className="text-slate-500 text-lg md:text-xl leading-relaxed max-w-3xl">
+              Notes, tutorials, and implementation guides for DevOps engineers working with Kubernetes, CI/CD, infrastructure automation, and reliability.
+            </p>
+          </div>
+          <div className="lg:col-span-4 flex lg:justify-end lg:items-end">
+            <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
+              <div className="border border-slate-200 rounded-lg p-4">
+                <p className="text-3xl serif text-slate-950">{posts.length}</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Articles</p>
+              </div>
+              <div className="border border-slate-200 rounded-lg p-4">
+                <p className="text-3xl serif text-slate-950">DevOps</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Focus</p>
               </div>
             </div>
-
-            {/* Tweet text */}
-            <p className="text-slate-900 text-base leading-relaxed mb-3 min-h-[3rem]">
-              {q.text}{' '}
-              {q.tags.map(tag => <span key={tag} className="text-blue-500">{tag} </span>)}
-            </p>
-
-            {/* Actions */}
-            <div className="flex items-center gap-8 text-slate-400 text-sm">
-              <button
-                onClick={handleLike}
-                className={`flex items-center gap-1.5 transition-colors ${liked[current] ? 'text-red-500' : 'hover:text-red-500'}`}
-              >
-                <svg className="w-5 h-5" fill={liked[current] ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                  <path d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"/>
-                </svg>
-                <span>{likeCounts[current].toLocaleString()}</span>
-              </button>
-              <button
-                onClick={handleShare}
-                className={`flex items-center gap-1.5 transition-colors ${copied ? 'text-green-500' : 'hover:text-blue-500'}`}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                  <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/>
-                </svg>
-                <span>{copied ? 'Copied!' : 'Share'}</span>
-              </button>
-            </div>
           </div>
         </div>
+      </section>
 
-        {/* Dots + Nav outside the box */}
-        <div className="flex items-center justify-between mt-3 px-1">
-          <div className="flex gap-1.5">
-            {quotes.map((_, i) => (
-              <button key={i} onClick={() => setCurrent(i)} className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-blue-500 w-4' : 'bg-slate-200 w-1.5'}`} />
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <button onClick={prev} className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-900">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <span className="text-xs text-slate-400 font-bold">{current + 1}/{quotes.length}</span>
-            <button onClick={next} className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-900">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Quote Carousel */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+        <ThoughtsCarousel />
+      </section>
 
-      <div className="divide-y divide-slate-100">
-        {posts.map((post) => (
-          <Link to={`/blog/${post.slug}`} key={post.slug} className="block py-10 group">
-            <div className="flex items-center space-x-4 mb-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                {new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+      <section className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {posts.map((post) => (
+            <Link to={`/blog/${post.slug}`} key={post.slug} className="group block border border-slate-200 rounded-xl p-6 md:p-7 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5 transition-all">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-slate-300" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{post.tag}</span>
+              </div>
+              <h2 className="text-xl md:text-2xl serif text-slate-950 mb-4 group-hover:text-slate-600 transition-colors leading-tight">
+                {post.title}
+              </h2>
+              <p className="text-slate-500 leading-relaxed text-sm mb-6">{post.excerpt}</p>
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900">
+                Read Article
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </span>
-              <span className="w-1 h-1 rounded-full bg-slate-300" />
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{post.tag}</span>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
-              {post.title}
-            </h2>
-            <p className="text-slate-500 leading-relaxed">{post.excerpt}</p>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
