@@ -118,7 +118,7 @@ const ThoughtsCarousel: React.FC<ThoughtsCarouselProps> = ({ className = '' }) =
               <img src="/img/home/IMG_8714.jpg" alt="Ali Murtaza" className="w-12 h-12 rounded-lg object-cover" draggable={false} />
               <div>
                 <p className="font-bold text-slate-900 text-sm md:text-base">Ali Murtaza</p>
-                <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">Field Note</p>
+                <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest">Ali Murtaza | DevSecOps & Cloud Engineer</p>
               </div>
             </div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{current + 1}/{thoughts.length}</span>
