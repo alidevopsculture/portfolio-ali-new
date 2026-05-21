@@ -26,9 +26,9 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
 
   const Logo = ({ className = "" }: { className?: string }) => (
     <Link to="/" className={`flex items-center space-x-3 tracking-tight group ${className}`}>
-      <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-200 group-hover:border-slate-900 transition-all duration-300">
+      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-slate-900 transition-all duration-300">
         <img 
-          src="/img/home/IMG_3597.jpg" 
+          src="/img/home/IMG_9693.PNG" 
           alt="Ali Murtaza" 
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
         />
