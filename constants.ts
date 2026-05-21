@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'k8s-migration',
-    title: 'Kubernetes Minikube Deployment - Blogy Platform',
+    title: 'Kubernetes Three-Tier Deployment - Blogy Platform',
     category: 'DevOps Infrastructure',
     subtitle: '3-Tier Web App Container Orchestration',
     description: 'Full-stack blogging platform deployed on Kubernetes using Minikube. Manual DevOps implementation with Docker containerization, CI/CD pipelines, and complete infrastructure setup without AI assistance.',
