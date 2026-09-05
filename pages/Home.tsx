@@ -92,7 +92,7 @@ const Home: React.FC = () => {
             <div className="relative lg:max-w-[500px] lg:ml-auto lg:-mt-10">
               <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200 shadow-2xl shadow-slate-900/10">
                 <img
-                  src="/img/home/IMG_8721.jpg"
+                  src="/img/home/new/IMG_00037.PNG"
                   alt="Ali Murtaza"
                   className="w-full h-full object-cover scale-110 -translate-y-10 lg:-translate-y-14"
                 />
@@ -219,13 +219,13 @@ const Home: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200">
               <img 
-                src="/img/home/IMG_8714.jpg" 
+                src="/img/home/new/IMG_9643.jpg"
                 alt="Ali Murtaza" 
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -left-2 md:-left-6 bg-white p-6 rounded-xl shadow-xl shadow-slate-900/10 border border-slate-200 max-w-xs">
-              <p className="text-sm font-bold text-slate-900 mb-2">Currently Seeking</p>
+              <p className="text-sm font-bold text-slate-900 mb-2">Mastering</p>
               <p className="text-xs text-slate-600">DevOps Engineer / Cloud Engineer roles with focus on Kubernetes, AWS, and automation</p>
             </div>
           </div>
